@@ -4,6 +4,7 @@
   --color-black: #000;
   --color-blue: #2488FF;
   --button-gradient: linear-gradient(269.95deg, #FF04E6 0%, #1B90FF 100%);
+  --example-gradient: linear-gradient(118.93deg, #810196 -0.54%, #340073 36.11%, #22124D 64.91%);
 }
 
 * {
@@ -609,6 +610,64 @@ a {
   background-color: var(--color-blue);
 }
 /* /Второй экран */
+/* Третий экран */
+.example {
+  background: var(--example-gradient);
+  border-radius: 15px;
+  max-width: 1320px;
+  margin: 97px auto 0;
+  height: 929px;
+  padding: 45px 80px;
+  position: relative;
+}
+
+.example::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -13px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: var(--example-gradient);
+  opacity: .5;
+  z-index: -1;
+}
+
+.product_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product_row > *:not(:last-child) {
+  margin-right: 60px;
+}
+
+.product_photo {
+  min-width: 388px;
+}
+
+.product_photo img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}
+
+.product_text {
+  max-width: 585px;
+}
+
+.price_border {
+  border-left: 1px dashed rgba(255, 255, 255, 0.1);
+  align-self: stretch;
+}
+
+.product_price {
+  
+}
+/* /Третий экран */
 
 @media (max-width: 1366px) {
   .limiter {
@@ -1189,6 +1248,6 @@ a {
 
   .many-types_controls {
     bottom: -49px;
-}
+  }
 
 }
