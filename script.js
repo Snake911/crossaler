@@ -65,5 +65,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
       dot.classList.add('active');
     });
-  })
+  });
+
+  const exampleProducts = tns({
+    container: '.example_products-wrap.active .example_products-slider',
+    items: 6,
+    gutter: 12,
+    slideBy: 1,
+    controlsContainer: '.example_products-wrap.active .example_products-controls',
+    nav: false
+  });
+
+  const exampleTabs = document.querySelectorAll('.example_tabs .tab');
+  const exampleWraps = document.querySelectorAll('.example_tabs .example_products-wrap');
+  exampleTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      if(!tab.classList.contains('active')) {
+        exampleTabs.forEach((tabOld) => {
+          tabOld.classList.remove('active');
+        });
+        tab.classList.add('active');
+        exampleWraps.forEach((wrap) => {
+          if(wrap.dataset.id === tab.dataset.tab) {
+            wrap.classList.add('active');
+          } else {
+            wrap.classList.remove('active');
+          }          
+        });
+        exampleProducts.rebuild();
+      }
+    });
+    
+  });
 });
