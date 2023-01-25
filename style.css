@@ -5,6 +5,8 @@
   --color-blue: #2488FF;
   --color-lightblue: #63A9FC;
   --color-green: #65B428;
+  --color-pink: #FF60AC;
+  --color-gray: #888;
   --button-gradient: linear-gradient(269.95deg, #FF04E6 0%, #1B90FF 100%);
   --example-gradient: linear-gradient(118.93deg, #810196 -0.54%, #340073 36.11%, #22124D 64.91%);
 }
@@ -1014,6 +1016,451 @@ a {
   max-width: 154px;
 }
 /* /Четвертый экран */
+/* Тетрис */
+.tetris {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 90px;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 120px;
+  margin-bottom: 100px;
+}
+
+.tetris_left .text-gradient {
+  font-weight: 300;
+  font-size: 24px;
+  margin-bottom: 6px;  
+}
+
+.tetris_left h2 {
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.tetris_left p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 32px;  
+}
+
+.tetris_left .button {
+  margin-top: 30px;
+  position: relative;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.tetris_left .button::before {
+  content: "";
+  display: block;
+  width: calc(100% + 6px);
+  height: 100%;
+  position: absolute;
+  background: var(--button-gradient);
+  border-radius: 8px;
+  z-index: -1;
+  top: -3px;
+  left: -3px;
+  opacity: .5;
+}
+
+.tetris_left .button::after {
+  content: "";
+  display: block;
+  width: 146px;
+  height: 54px;
+  background: url('./images/toExample.svg') no-repeat center/contain transparent;
+  position: absolute;
+  top: calc(50% - 27px);
+  right: -176px;
+}
+
+.tetris_right {
+  position: relative;  
+  height: 100%;
+  overflow: hidden;
+}
+
+.tetris_right img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 342px;
+  object-fit: contain;
+  object-position: bottom;
+  bottom: 750px;
+  transform: rotate(180deg);
+  transition: all .9s ease;
+}
+
+.tetris_right.animate #tetris_1 {
+  transform: rotate(90deg);
+  transition-delay: .3s;
+}
+
+.tetris_right.animate #tetris_2 {
+  transform: rotate(90deg);
+  transition-delay: 1.5s;
+}
+
+.tetris_right.animate #tetris_3 {
+  transition-delay: 2.7s;
+}
+
+.tetris_right.animate #tetris_4 {
+  transform: rotate(90deg);
+  transition-delay: 4s;
+}
+
+.tetris_right.animate #tetris_5 {
+  transform: rotate(0deg);
+  transition-delay: 5.2s;
+}
+
+.tetris_right.animate #tetris_6 {
+  transform: rotate(0deg);
+  transition: all .9s ease 6.3s;
+}
+
+.tetris_right.animated [id^="tetris_"] {
+  bottom: 0px !important;
+  transform: rotate(0deg) !important;
+}
+/* /Тетрис */
+
+/* Шестой блок */
+.multiselect {
+  background: var(--color-white);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 1480px;
+  margin: 97px auto 60px;
+  padding: 50px 70px;
+  position: relative;
+  color: var(--color-black);
+}
+
+.multiselect::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -14px;
+  bottom: 14px;
+  left: 10px;
+  right: 17px;
+  background: var(--color-white);
+  opacity: 0.5;
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.multiselect h2 {
+  font-weight: 700;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.multiselect h2 span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  margin-left: 15px;
+  background: var(--color-blue);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-white);
+}
+
+.multiselect_wrap {
+  display: grid;
+  grid-template-columns: 1fr 282px;
+  gap: 24px;
+}
+
+.multiselect_left,
+.multiselect_right {
+  display: grid;
+  gap: 24px;
+}
+
+.multiselect_list,
+.multiselect_more {
+  background-color: var(--color-white);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 1124px;
+}
+
+.multiselect_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  position: relative;
+}
+
+.multiselect_item:not(:last-child) {
+  border-bottom: 1px dashed #E5E5E5;
+}
+
+.multiselect_item-marker {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  padding: 3px 6px;
+  background: var(--color-lightblue);
+  border-radius: 4px;
+  color: var(--color-white);
+  width: fit-content;
+  position: absolute;
+  top: 3px;
+  left: 0px;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.multiselect_item-photo_text {
+  display: flex;
+  align-items: center;
+}
+
+.multiselect_item-photo {
+  height: 90px;
+  width: 100px;
+  margin-right: 24px;
+}
+
+.multiselect_item-photo img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.multiselect_item-text {
+  flex: 1;
+  max-width: 330px;
+}
+
+.multiselect_item-available {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 17px;
+  color: var(--color-green);
+  margin-bottom: 8px;
+}
+
+.multiselect_item-name {
+  font-size: 14px;
+  line-height:  18px;
+}
+
+.multiselect_item-bonuses {
+  color: var(--color-blue);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 17px;
+  margin-bottom: 12px;
+}
+
+.multiselect_item-bonuses span {
+  font-weight: 700;
+}
+
+.multiselect_item-discount {
+  font-size: 13px;
+  color: var(--color-pink);
+  border: 1px solid;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.multiselect_item-prices {
+  display: grid;
+  gap: 4px;
+}
+
+.multiselect_item-oldprice {
+  font-size: 13px;
+  line-height: 17px;
+  text-decoration-line: line-through;
+  color: var(--color-gray);
+}
+
+.multiselect_item-price {
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 27px;
+}
+
+.multiselect_item-sum {
+  font-size: 13px;
+  line-height: 17px;
+}
+
+.multiselect_item-sum span {
+  font-weight: 700;
+  color: var(--color-blue);
+}
+
+.multiselect_more h3 {
+  font-weight: 700;
+  font-size: 21px;
+  margin-bottom: 24px;
+}
+
+.multiselect_more .tabs {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 24px;
+}
+
+.multiselect_more .tab {
+  display: block;
+  padding: 9px 16px;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  border-image: url(./images/border_tab.svg) 4 / 4px;
+  cursor: pointer;
+}
+
+.multiselect_more .tab.active {
+  background: var(--button-gradient);
+  border: 0;
+  cursor: default;
+  color: var(--color-white);
+}
+
+.multiselect_carousel {
+  display: none;
+  position: relative;
+}
+
+.multiselect_carousel.active {
+  display: block;
+}
+
+.multiselect_carousel .example_products-item {
+  border: 1px dashed #E5E5E5;
+}
+
+.multiselect_carousel-controls > * {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: url('./images/arrow_slider.svg') no-repeat 55%/7px var(--color-blue);
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: -15px;
+}
+
+.multiselect_carousel-left {
+  transform: rotate(180deg);
+}
+
+.multiselect_carousel-right {
+  left: auto;
+  right: -15px;
+}
+
+.multiselect_total {
+  background: var(--color-white);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  height: fit-content;
+  padding: 24px;
+  position: relative;
+  display: grid;
+  gap: 12px;
+}
+
+.multiselect_total-marker {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-white);
+  background: #FF2164;
+  border-radius: 4px;
+  padding: 4px 8px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.multiselect_total-prices {
+  display: grid;
+  gap: 6px;
+}
+
+.multiselect_total-oldprice {
+  font-weight: 300;
+  font-size: 18px;
+  text-decoration-line: line-through;
+}
+
+.multiselect_total-price {
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.multiselect_total-info {
+  display: grid;
+  gap: 14px;
+  padding-bottom: 12px;
+}
+
+.multiselect_total-characteristics {
+  display: flex;
+  gap: 21px;
+  color: var(--color-gray);
+  font-size: 13px;
+  line-height: 17px;
+}
+
+.multiselect_total-characteristics b {
+  color: var(--color-black);
+}
+
+.multiselect_total-discount {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  line-height: 17px;
+  position: relative;
+  max-width: 200px;
+}
+
+.multiselect_total-discount::after {
+  content: "";
+  display: block;
+  width: 100%;
+  border-bottom: 1px dashed #E5E5E5;
+  position: absolute;
+  bottom: 4px;
+  z-index: 0;
+}
+
+.multiselect_total-discount span {
+  background-color: var(--color-white);
+  position: relative;
+  z-index: 1;
+}
+/* /Шестой блок */
 
 @media (max-width: 1366px) {
   .limiter {
@@ -1375,6 +1822,15 @@ a {
   .advantage:last-child {
     border: 0;
     padding-right: 0;
+  }
+
+  .tetris_left h2 {
+    font-size: 36px;
+  }
+
+  .tetris_left p {
+    font-size: 14px;
+    line-height: 25px;
   }
   
 }
@@ -1787,6 +2243,10 @@ a {
     max-width: 453px;
   }
 
+  .advantages {
+    margin-bottom: 40px;
+  }
+
   .advantage {
     font-size: 16px;
     line-height: 21px;
@@ -1794,6 +2254,29 @@ a {
 
   .advantage img {
     max-height: 40px;
+  }
+
+  .tetris {
+    gap: 42px;
+    margin-top: 0;
+  }
+
+  .tetris_left .text-gradient {
+    font-size: 18px;
+  }
+
+  .tetris_left h2 {
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+
+  .tetris_left p {
+    font-size: 13px;
+    line-height: 19px;
+  }
+
+  .tetris_left .button {
+    padding: 18px 40px;
   }
  
 }

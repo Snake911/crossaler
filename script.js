@@ -99,7 +99,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         exampleProducts.rebuild();
       }
-    });
-    
+    });    
+  });
+
+  const multiselectProducts = tns({
+    container: '.multiselect_carousel.active .multiselect_carousel-slider',
+    items: 3,
+    gutter: 12,
+    slideBy: 1,
+    controlsContainer: '.multiselect_carousel.active .multiselect_carousel-controls',
+    nav: false,
+    responsive: {
+      1200: {
+        items: 4
+      },
+      1366: {
+        items: 5
+      }
+    }
+  });
+
+  const multiselectTabs = document.querySelectorAll('.multiselect_tabs .tab');
+  const multiselectWraps = document.querySelectorAll('.multiselect_tabs .multiselect_carousel');
+  multiselectTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      if(!tab.classList.contains('active')) {
+        multiselectTabs.forEach((tabOld) => {
+          tabOld.classList.remove('active');
+        });
+        tab.classList.add('active');
+        multiselectWraps.forEach((wrap) => {
+          if(wrap.dataset.id === tab.dataset.tab) {
+            wrap.classList.add('active');
+          } else {
+            wrap.classList.remove('active');
+          }          
+        });
+        multiselectProducts.rebuild();       
+      }
+    });    
   });
 });
