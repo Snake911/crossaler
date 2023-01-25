@@ -69,11 +69,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const exampleProducts = tns({
     container: '.example_products-wrap.active .example_products-slider',
-    items: 6,
+    items: 5,
     gutter: 12,
     slideBy: 1,
     controlsContainer: '.example_products-wrap.active .example_products-controls',
-    nav: false
+    nav: false,
+    responsive: {
+      1200: {
+        items: 6
+      }
+    }
   });
 
   const exampleTabs = document.querySelectorAll('.example_tabs .tab');
