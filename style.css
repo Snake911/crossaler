@@ -924,11 +924,96 @@ a {
 /* Четвертый экран */
 .save-time {
   display: grid;
-  grid-template-columns: repeat(2, 670px);
+  grid-template-columns: repeat(2, minmax(calc(50% - 15px), 670px));
   gap: 30px;
-  align-items: start;
+  align-items: center;
   justify-content: space-between;
+  margin-top: 136px;
+  margin-bottom: 116px;
 }
+
+.save-time_left {
+  display: grid;
+  gap: 30px;
+}
+
+.save-time_left h2 {
+  font-weight: 300;
+  font-size: 48px;
+}
+
+.save-time_left p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 32px;
+  max-width: 630px;
+}
+
+.save-time_right {
+  justify-self: end;
+}
+
+.save-time_image {
+  max-width: 655px;
+  position: relative;
+  margin-bottom: 25px;
+  margin-right: 15px;
+}
+
+.save-time_image img {
+  border-radius: 25px;
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(10px -5px 20px rgba(0, 0, 0, 0.08));
+}
+
+.save-time_image::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 14px;
+  right: -15px;
+  background-color: #E4E5E6;
+  z-index: -1;
+  border-radius: 25px;
+}
+
+.advantages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.advantage {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  font-size: 18px;
+  line-height: 23px;
+  border-left: 1px dashed #404952;
+  padding: 0 10px;
+}
+
+.advantage:last-child {
+  border-right: 1px dashed #404952;
+}
+
+.advantage img {
+  display: block;
+  max-height: 50px;
+  object-fit: contain;
+  margin-right: 23px;
+}
+
+.advantage p {
+  max-width: 154px;
+}
+/* /Четвертый экран */
 
 @media (max-width: 1366px) {
   .limiter {
@@ -1254,6 +1339,42 @@ a {
 
   .example_products-item {
     padding: 18px 12px;
+  }
+
+  .save-time {
+    margin-top: 70px;
+    margin-bottom: 83px;
+    grid-template-columns: repeat(2, minmax(calc(50% - 15px), 565px));
+  }
+
+  .save-time_left {
+    gap: 24px;
+  }
+
+  .save-time_left h2 {
+    font-size: 36px;
+  }
+
+  .save-time_left p {
+    font-size: 14px;
+    line-height: 25px;
+    max-width: 545px;
+  }
+
+  .save-time_image {
+    margin-bottom: 0;
+  }
+
+  .advantage {
+    border: 0;
+    padding: 0;
+    padding-right: 10px;
+    justify-content: start;
+  }
+
+  .advantage:last-child {
+    border: 0;
+    padding-right: 0;
   }
   
 }
@@ -1646,4 +1767,33 @@ a {
   .example_tabs {
     padding: 0 60px;
   }
+
+  .save-time {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 70px;
+  }
+
+  .save-time_left {
+    gap: 16px;
+}
+
+  .save-time_left h2 {
+    font-size: 28px;
+  }
+
+  .save-time_left p {
+    font-size: 13px;
+    line-height: 19px;
+    max-width: 453px;
+  }
+
+  .advantage {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .advantage img {
+    max-height: 40px;
+  }
+ 
 }
