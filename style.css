@@ -1137,9 +1137,9 @@ a {
 .multiselect {
   background: var(--color-white);
   border-radius: 6px;
-  width: 100%;
-  max-width: 1480px;
-  margin: 97px auto 60px;
+  /* width: 100%; */
+  max-width: 1340px;
+  margin: 143px auto 60px;
   padding: 50px 70px;
   position: relative;
   color: var(--color-black);
@@ -1182,15 +1182,16 @@ a {
 }
 
 .multiselect_wrap {
-  display: grid;
-  grid-template-columns: 1fr 282px;
-  gap: 24px;
+  display: flex;
 }
 
-.multiselect_left,
+.multiselect_left {
+  flex: 1;
+  margin-right: 14px;
+}
+
 .multiselect_right {
-  display: grid;
-  gap: 24px;
+  min-width: 282px;
 }
 
 .multiselect_list,
@@ -1199,14 +1200,18 @@ a {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   padding: 24px;
-  max-width: 1124px;
+}
+
+.multiselect_list {
+  padding: 12px 24px;
+  margin-bottom: 24px;
 }
 
 .multiselect_item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
+  padding: 20px 0;
   position: relative;
 }
 
@@ -1344,6 +1349,10 @@ a {
   color: var(--color-white);
 }
 
+.multiselect_carousels {
+  max-width: min(calc(100vw - 530px), 1024px);
+}
+
 .multiselect_carousel {
   display: none;
   position: relative;
@@ -1378,6 +1387,23 @@ a {
   right: -15px;
 }
 
+.multiselect_carousel .example_products-item {
+  padding: 24px 12px;
+}
+
+.multiselect_carousel .example_products-image img {
+  height: 110px;
+}
+
+.multiselect_carousel .example_products-name {
+  margin-bottom: 12px;
+}
+
+.multiselect_carousel .example_products-price {
+  font-size: 16px;
+  line-height: 21px;
+}
+
 .multiselect_total {
   background: var(--color-white);
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
@@ -1387,6 +1413,7 @@ a {
   position: relative;
   display: grid;
   gap: 12px;
+  margin-bottom: 24px;
 }
 
 .multiselect_total-marker {
@@ -1459,6 +1486,78 @@ a {
   background-color: var(--color-white);
   position: relative;
   z-index: 1;
+}
+
+.multiselect_total-attention {
+  background: var(--button-gradient);
+  border-radius: 8px;
+  color: var(--color-white);
+  text-align: center;
+  padding: 12px 18px;
+  font-size: 13px;
+  line-height: 17px;
+}
+
+.multiselect_forget {
+  background: var(--color-white);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 24px;
+  padding-bottom: 0;
+}
+
+.multiselect_forget h3 {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+.multiselect_forget-item {
+  display: grid;
+  grid-template-columns: 45px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 28px 0;
+  border-top: 1px dashed #E5E5E5;
+}
+
+.multiselect_forget-image {
+  display: block;
+  width: 45px;
+  height: 60px;
+}
+
+.multiselect_forget-image img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
+}
+
+.multiselect_forget-name {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.multiselect_forget-prices {
+  display: flex;
+  align-items: baseline;
+}
+
+.multiselect_forget-price {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  margin-right: 10px;
+}
+
+.multiselect_forget-oldprice {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration-line: line-through;
+  color: var(--color-blue);
 }
 /* /Шестой блок */
 
@@ -1831,6 +1930,16 @@ a {
   .tetris_left p {
     font-size: 14px;
     line-height: 25px;
+  }
+
+  .multiselect {
+    border-radius: 0;
+    margin-top: 170px;
+    padding: 50px 95px 60px;
+  }
+
+  .multiselect::before {
+    display: none;
   }
   
 }
@@ -2259,6 +2368,7 @@ a {
   .tetris {
     gap: 42px;
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   .tetris_left .text-gradient {
@@ -2277,6 +2387,23 @@ a {
 
   .tetris_left .button {
     padding: 18px 40px;
+  }
+
+  .multiselect {
+    margin-top: 77px;
+    padding: 55px 70px 60px;
+  }
+
+  .multiselect_item-info {
+    display: none;
+  }
+
+  .multiselect_left {
+    margin-right: 10px;
+  }
+
+  .multiselect_carousels {
+    max-width: min(calc(100vw - 480px), 1024px);
   }
  
 }

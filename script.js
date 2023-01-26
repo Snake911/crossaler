@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
       1200: {
         items: 4
       },
-      1366: {
+      1367: {
         items: 5
       }
     }
